@@ -1,17 +1,9 @@
 import string
 import random
 
-def password_generator(length: int) -> str:
-    lower_case_letters = string.ascii_lowercase
-    upper_case_letters = string.ascii_uppercase
-    digits = string.digits
-    
-    password = random.choices(lower_case_letters + upper_case_letters + digits, k=random.randint(8, 16))
-
+def password_generator(length: int = random.randint(8, 16)) -> str:
+    characters = string.ascii_letters + string.digits
+    password = random.choices(characters, k=length)
     return "".join(password)
 
-print(password_generator(10))
-    
-    
-    
-    
+print(password_generator())

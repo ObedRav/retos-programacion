@@ -16,16 +16,15 @@ def is_fibonacci(num: int) -> bool:
     return is_perfect_square(5 * num * num + 4) or is_perfect_square(5 * num * num - 4)
 
 def checker(num: int) -> str:
-    is_even = True if num % 2 == 0 else False
+    is_even = num % 2 == 0
     is_prime_bool = is_prime(num)
     is_fibonacci_bool = is_fibonacci(num)
     
-    string = ""
-    
-    string += f"{num} es primo, " if is_prime_bool else f"{num} no es primo, "
+    string = f"{num} "
+    string += "es primo, " if is_prime_bool else "no es primo, "
     string += "fibonacci, y " if is_fibonacci_bool else "no es fibonacci, y "
     string += "es par" if is_even else "es impar"
-    
+
     return string
 
 print(checker(2))

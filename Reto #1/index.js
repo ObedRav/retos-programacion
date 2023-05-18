@@ -55,4 +55,4 @@ const leetTranslator = (text) => {
   return leet;
 };
 
-console.log(leetTranslator("I'm good and you?"));
+console.log(leetTranslator("I'm good and you?."));

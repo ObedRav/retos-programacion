@@ -13,19 +13,8 @@ def piedra_papel_tijeras(lista_jugadas):
         ("🦎", "🖖"): "🦎"   # Lagarto vs. Spock -> Lagarto
     }
 
-    player_1_points = 0
-    player_2_points = 0
-    
-    for i in lista_jugadas:
-        try:
-            result = posibilidades[i]
-        except KeyError:
-            result = posibilidades[i[::-1]]
-
-        if result == i[0]:
-            player_1_points += 1
-        else:
-            player_2_points += 1
+    player_1_points = sum(1 for jugada in lista_jugadas if posibilidades.get(jugada) == jugada[0])
+    player_2_points = len(lista_jugadas) - player_1_points
             
     return ("Player 1" if player_1_points > player_2_points else "Player 2") if player_1_points != player_2_points else "Tie"
 

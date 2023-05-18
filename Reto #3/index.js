@@ -8,13 +8,7 @@ const generate_password = () => {
 
     const length = Math.random() * (16 - 8) + 8;
 
-    let password = "";
-
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * allCharacters.length);
-        const randomElement = allCharacters[randomIndex];
-        password += randomElement;
-    }
+    let password = Array.from({ length }, () => allCharacters[Math.floor(Math.random() * allCharacters.length)]).join('');
 
     return password;
 }
